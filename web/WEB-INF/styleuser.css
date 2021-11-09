@@ -1,0 +1,156 @@
+body {
+    font-family: Verdana;
+    background-image: url(../images/fon2.jpg);
+    background-repeat: no-repeat center top fixed;
+    background-size: cover;
+    margin: 0;
+    width:100%;
+}
+
+#header {
+    font-size:25px;
+    text-align:center;
+    margin:15px;
+}
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #111;
+}
+
+#navbar ul li {
+    float: left;
+    height:7%;
+}
+
+#navbar ul li * {
+    display: block;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+#navbar ul li a:hover {
+    background-color: orange;
+}
+
+#content {
+    margin-top:40px;
+    margin-left: 3%;
+    margin-right: 3%;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 10px;
+    background-color: #f7f5df;
+    opacity: 0.78;
+}
+#parent_popup {
+    background: #000;
+    height: 100%;
+    opacity: 1;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    display:none;
+}
+#popup {
+    border-radius: 10px;
+    border-width: 1px;
+    background-color: orange;
+    margin:10%;
+    padding:10px;
+    width:80%;
+    color: black;
+}
+
+form {
+    font-family: sans-serif;
+    padding: 0 15px;
+    border-radius: 3px;
+    background-color: #f7f5df;
+    font-size: 100%;
+}
+
+fieldset {
+    padding: 0;
+    margin: 0;
+    margin: 15px 0;
+    border: none;
+}
+
+label {
+    width: 80px;
+    display: inline-block;
+}
+
+input {
+    border: 1px solid black;
+    padding: 3px 5px;
+    margin: 7px;
+    font-weight: bolder;
+    width: 110px;
+    background-color: white;
+    font-size: inherit;
+}
+input[type="submit"] {
+    cursor: pointer;
+}
+button {
+    border: 1px solid black;
+    padding: 3px 5px;
+    margin: 7px;
+    font-weight: bolder;
+    width: 110px;
+    background-color: white;
+    font-size: inherit;
+    cursor: pointer;
+}
+button:hover {
+    background-color: white;
+}
+
+form input:valid + span {
+    content: url(http://htmlbook.ru/example/images/ok.png);
+}
+
+form input:invalid + span {
+    content: url(http://www.clker.com/cliparts/4/3/1/f/1195436930767206781not_ok_mark_h_kon_l_vdal_01.svg);
+    height: 15px;
+    vertical-align: middle;
+    margin-left: -3px;
+}
+.sum {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #E3E3E3;
+    border-radius: 3px;
+}
+.sum input {
+    padding: 2px 15px;
+    margin-left: 95px;
+    border-radius: 15px;
+    border: 2px solid #008F00;
+    background: linear-gradient(#00E000, #008F00);
+    color: white;
+}
+
+#register {
+    display:none;
+}
+.task {
+    background: white;
+}
+#PROGRESS {
+    width:80%;
+}
+a:hover {
+    color: black;
+    font-size: 1.05em;
+
+}
