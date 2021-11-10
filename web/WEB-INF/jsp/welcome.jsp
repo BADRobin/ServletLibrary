@@ -24,7 +24,7 @@
         <c:redirect url="/app/main"/>
     </c:when>
     <c:when test="${role.equals('admin')}">
-        <c:redirect url="/app/main"/>
+        <c:redirect url="/app/admin"/>
     </c:when>
     <c:otherwise>
         <jsp:directive.include file="/WEB-INF/jsp/navbar.jsp"/>

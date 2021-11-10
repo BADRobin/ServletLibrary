@@ -14,6 +14,7 @@ public class ActionResult {
         this.redirect = false;
     }
 
+
     public String getView() {
         return view;
     }

@@ -144,4 +144,8 @@ public class UserService {
             }
         }
     }
+
+    public void findUserById(long parseLong, boolean parseBoolean) {
+
+    }
 }

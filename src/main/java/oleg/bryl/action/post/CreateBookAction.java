@@ -24,7 +24,7 @@ public class CreateBookAction implements Action {
     private static final Logger log = Logger.getLogger(ControllerServlet.class);
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
 
         BookService bookService = new BookService();
         try {

@@ -18,7 +18,7 @@ public class ShowOrderUser implements Action {
     private static final Logger log = Logger.getLogger(ShowOrderUser.class);
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();
         OrderService orderService = new OrderService();
         User user = new User();

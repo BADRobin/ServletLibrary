@@ -17,7 +17,7 @@ public class SelectLanguageAction implements Action {
     private static final Logger log = Logger.getLogger(SelectLanguageAction.class);
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         String language = req.getParameter(LANG);
         Config.set(req.getSession(), Config.FMT_LOCALE, new Locale(language));
         Cookie cookie = new Cookie(LANG, language);

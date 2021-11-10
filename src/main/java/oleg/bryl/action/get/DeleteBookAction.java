@@ -15,7 +15,7 @@ public class DeleteBookAction implements Action {
     private static final Logger log = Logger.getLogger(DeleteBookAction.class);
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         int idBook = Integer.parseInt(req.getParameter(ID_BOOK));
         BookService bookService = new BookService();
 

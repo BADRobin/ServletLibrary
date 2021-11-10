@@ -14,7 +14,7 @@ public class PageAddBookAction implements Action {
     private static final Logger log = Logger.getLogger(PageAddBookAction.class);
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         BookService bookService = new BookService();
 
         try {

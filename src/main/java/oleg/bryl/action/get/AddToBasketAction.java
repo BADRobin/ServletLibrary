@@ -13,7 +13,7 @@ import static oleg.bryl.action.Constants.*;
 public class AddToBasketAction implements Action {
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
 
         Integer bookId = Integer.parseInt(req.getParameter(ID_BOOK));
         HttpSession session = req.getSession();

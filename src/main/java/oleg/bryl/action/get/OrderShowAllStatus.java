@@ -19,7 +19,7 @@ public class OrderShowAllStatus implements Action {
     private static final Logger log = Logger.getLogger(ControllerServlet.class);
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         String idUser = req.getParameter(READER_ID);
         UserService userService = new UserService();
         User user = null;

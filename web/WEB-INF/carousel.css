@@ -1,0 +1,175 @@
+/*body {*/
+/*    padding-top: 30px; !* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. *!*/
+/*    padding-bottom: 40px;*/
+/*    color: #5a5a5a;*/
+/*}*/
+
+/* CUSTOMIZE THE NAVBAR
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+}
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.navbar-wrapper .navbar {
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 0px;
+    text-align: right;
+}
+
+.navbar-wrapper .navbar .container {
+    width: auto;
+}
+
+/*Enlarge the navbar-brand image*/
+.navbar-brand {
+    padding: 0px;
+}
+
+.navbar-brand > img {
+    height: 100%;
+    /*padding: 15px;*/
+    width: auto;
+}
+
+@media (min-width: 768px) {
+    .navbar-wrapper > .container > .nav-grouped {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+.carousel {
+    height: 700px;
+    margin-bottom: 60px;
+}
+
+.carousel > img .base-image {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.carousel-caption {
+    z-index: 10;
+    text-shadow: 1px 1px 5px darkorchid;
+}
+
+.carousel .item {
+    height: 700px;
+    background-color: #777;
+}
+
+.carousel-inner > .item > img {
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    min-width: 100%;
+    /*height:700px;*/
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.marketing h2 {
+    font-weight: normal;
+}
+
+.marketing .col-lg-4 p {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (max-width: 767px) {
+    .carousel {
+        height: auto;
+        max-height: 500px;
+    }
+
+    .carousel .item {
+        height: auto;
+        max-height: 500px
+    }
+
+    .carousel-caption h1 {
+        font-size: large;
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 768px) {
+    /* Navbar positioning foo */
+    .navbar-wrapper {
+        margin-top: 20px;
+    }
+
+    .navbar-wrapper .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .navbar-wrapper .navbar {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    /* The navbar becomes detached from the top, so we round the corners */
+    .navbar-wrapper .navbar {
+        /*border-radius: 4px;*/
+    }
+
+    /* Bump up size of carousel content */
+    .carousel-caption {
+        margin-bottom: 250px;
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+    .featurette-heading {
+        font-size: 50px;
+    }
+
+    .carousel {
+        height: 500px;
+    }
+
+    .carousel .item {
+        height: 500px;
+    }
+}
+
+@media (min-width: 992px) {
+    .featurette-heading {
+        margin-top: 550px;
+    }
+
+    .carousel {
+        height: auto;
+        max-height: 700px;
+    }
+
+    .carousel .item {
+        height: auto;
+        max-height: 700px;
+    }
+}

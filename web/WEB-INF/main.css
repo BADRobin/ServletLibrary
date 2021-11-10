@@ -1,0 +1,151 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.Book-bg {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9fcf7+0,f5f9f0+100;L+Green+3D */
+    background: rgb(249, 252, 247); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(249, 252, 247, 1) 0%, rgba(245, 249, 240, 1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(249, 252, 247, 1) 0%, rgba(245, 249, 240, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(249, 252, 247, 1) 0%, rgba(245, 249, 240, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9fcf7', endColorstr='#f5f9f0', GradientType=0); /* IE6-9 */
+}
+
+h1, h2 {
+    margin-top: 10px;
+    font-size: 38px;
+    font-weight: 100;
+    line-height: 50px;
+}
+
+h3 {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 30px;
+}
+
+strong {
+    font-weight: 500;
+}
+.btn-detalles {
+}
+
+.center {
+    text-align: center;
+}
+.float-right {
+    float:right !important;
+}
+/*BooktDetails.jsp*/
+.page-header {
+    color: #31708f;
+}
+
+.page-header small {
+    color: dodgerblue;
+}
+
+.detalles {
+    margin: auto;
+    max-width: 470px;
+    max-height: 370px;
+}
+
+.precio {
+    color: red;
+    font-size: large;
+}
+/*Book.jsp*/
+.caption {
+    margin-top: 30px;
+}
+
+.hero-spacer {
+    margin-top: 50px;
+}
+
+.hero-feature {
+    margin-bottom: 30px;
+}
+
+.Book-name {
+    font-size: medium;
+    text-overflow: ellipsis;
+    height: 40px;
+    overflow: hidden;
+}
+
+.portfolio-item {
+    margin-bottom: 25px;
+}
+
+.thumbnail {
+    background-color: white;
+    box-shadow: 0px 0px 4px #eb9316;
+    min-width: 240px;
+    min-height: 320px;
+    display: block;
+}
+
+.thumbnail img {
+    max-height: 500px;
+}
+
+/*inventario.jsp*/
+.table {
+    overflow: auto;
+}
+
+table > tbody > tr > td > img {
+    white-space: nowrap;
+    width: auto;
+    max-height: 150px;
+    max-width: 200px
+}
+
+/*"hack" to override table-hover effect on a row*/
+tbody tr:hover td[rowspan] {
+    background-color: white;
+}
+
+/*media*/
+@media (max-width: 767px) {
+    .cancel-all-btn {
+        padding-top: 30px;
+        padding-left: 30px;
+        float:left; !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .thumbnail > img {
+        height: 152px;
+    }
+    .cancel-all-btn {
+        padding-top: 30px;
+        padding-left: 140px;
+        float:right; !important;
+    }
+}
+@media (min-width: 968px) {
+    .thumbnail > img {
+        height: 152px;
+    }
+    .cancel-all-btn {
+        padding-top: 30px;
+        padding-left: 140px;
+        float:right; !important;
+    }
+}
+@media (min-width: 1168px) {
+    .cancel-all-btn {
+        padding-top: 70px;
+        padding-left: 170px;
+        float:right; !important;
+    }
+}
+
+
+
+
+

@@ -19,7 +19,7 @@ public class PageBasketAction implements Action {
     private static final Logger log = Logger.getLogger(PageBasketAction.class);
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();
         HashSet<Integer> basketList;
         BookService bookService = new BookService();

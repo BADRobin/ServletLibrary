@@ -23,7 +23,7 @@ public class CreateOrderAction implements Action {
     private static final Logger log = Logger.getLogger(CreateOrderAction.class);
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();
         HashSet<Integer> basketList;
         if (session.getAttribute(BASKET_LIST) != null) {

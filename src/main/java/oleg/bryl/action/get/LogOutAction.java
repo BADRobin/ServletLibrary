@@ -11,7 +11,7 @@ import static oleg.bryl.action.Constants.WELCOME;
 public class LogOutAction implements Action {
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         req.getSession().invalidate();
 
         return new ActionResult(WELCOME, true);

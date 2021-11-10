@@ -16,7 +16,7 @@ public class PageReadersAction implements Action {
     private static final Logger log = Logger.getLogger(PageReadersAction.class);
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         UserService userService = new UserService();
         int page = 1;
         int recordPerPage = 10;

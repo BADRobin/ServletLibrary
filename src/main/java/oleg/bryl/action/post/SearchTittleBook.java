@@ -16,7 +16,7 @@ public class SearchTittleBook implements Action {
     private static final Logger log = Logger.getLogger(SearchTittleBook.class);
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         String finder = req.getParameter(SEARCHER);
         BookService bookService = new BookService();
 

@@ -25,7 +25,7 @@ public class ControllerServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) {
         Action action = actionFactory.getAction(req);
         log.info("Создан " + action.toString() + " объект по запросу " + req.getMethod() + req.getPathInfo());
-        ActionResult result = action.execute(req, resp);
+        ActionResult result = (ActionResult) action.execute(req, resp);
         log.info("Создан ActionResult: " + result.getView() + " по запросу " + req.getMethod() + req.getPathInfo());
 
         View view = new View(req, resp);

@@ -88,13 +88,6 @@ public final class Constants {
     public static final String ONE_BOOK_ONLY = "one_book_only";
     public static final String ID_ORDER = "id_order";
     public static final String ORDERS = "orders";
-    public static final String TITTLES = "tittles";
-    public static final String TITTLE_ID = "tittle_id";
-    public static final String FORUM_ID = "id_forum";
-    public static final String COMMENTS = "comments";
-    public static final String TITTLE = "tittle";
-    public static final String OPINION = "opinion";
-    public static final String COMMENT_ID = "comment_id";
     public static final String SEARCHER = "searcher";
     public static final String FIND_BOOKS = "findBooks";
     public static final String AUTHOR_1 = "author1";

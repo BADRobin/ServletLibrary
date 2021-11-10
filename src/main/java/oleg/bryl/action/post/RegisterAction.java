@@ -19,7 +19,7 @@ public class RegisterAction implements Action {
     private static final Logger log = Logger.getLogger(RegisterAction.class);
 
     @Override
-    public ActionResult execute(HttpServletRequest request, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest request, HttpServletResponse resp) {
 
         UserService userService = new UserService();
         User user = new User();

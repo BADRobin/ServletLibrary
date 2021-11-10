@@ -14,7 +14,7 @@ import static oleg.bryl.validator.RegistrValidation.validateNameRegex;
 public class CreateAuthorAction implements Action {
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
 
         String firstName = req.getParameter(FIRST_NAME);
         String lastName = req.getParameter(LAST_NAME);

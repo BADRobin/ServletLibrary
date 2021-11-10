@@ -11,7 +11,7 @@ public class ShowPageAction implements Action {
     }
 
     @Override
-    public ActionResult execute(HttpServletRequest request, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest request, HttpServletResponse resp) {
         return result;
     }
 }

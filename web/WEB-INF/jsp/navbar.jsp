@@ -29,8 +29,9 @@
 </style>
 <BODY background="../images/fon.jpg">
 <div id="header">${global_title}</div>
-<div id="navbar">
-    <ul>
+<%--<div id="navbar">--%>
+<nav>
+    <ul class="topmenu">
         <c:choose>
             <c:when test="${role.equals('user')}">
                 <li><a href=${books_url}>${navBooks}</a></li>
@@ -43,28 +44,39 @@
                         </c:if>
                     </a>
                 </li>
+            <li><a href="" class="down">Lang</a>
+                <ul class="submenu">
                 <li><a href=${selectLanguageEn_url}><img src="../images/en.png" width="25" height="25"></a></li>
                 <li><a href=${selectLanguageRu_url}><img src="../images/ru.png" width="25" height="25"></a></li>
+                </ul>
+            </li>
             </c:when>
             <c:when test="${role.equals('admin')}">
                 <li><a href=${books_url}>${navBooks}</a></li>
                 <li><a href=${readers_url}>${navReaders}</a></li>
                 <li><a href=${addBook_url}>${addBook}</a></li>
                 <li><a href=${logout_url}>${logout}</a></li>
-                <li>
-                    <a href=${selectLanguageEn_url}><img src="../images/en.png" width="25" height="25"></a>
+                <li><a href="" class="down">Lang</a>
+                    <ul class="submenu">
+                        <li><a href=${selectLanguageEn_url}><img src="../images/en.png" width="25" height="25"></a></li>
+                        <li><a href=${selectLanguageRu_url}><img src="../images/ru.png" width="25" height="25"></a></li>
+                    </ul>
                 </li>
-                <li><a href=${selectLanguageRu_url}><img src="../images/ru.png" width="25" height="25"></a></li>
+
             </c:when>
             <c:otherwise>
                 <li><a href=${home_url}>${sign_in}</a></li>
                 <li><a href=${books_url}>${navBooks}</a></li>
-                <li><a href=${selectLanguageEn_url}><img src="../images/en.png" width="25" height="25"></a></li>
-                <li><a href=${selectLanguageRu_url}><img src="../images/ru.png" width="25" height="25"></a></li>
+                <li><a href="" class="down">Lang</a>
+                    <ul class="submenu">
+                        <li><a href=${selectLanguageEn_url}><img src="../images/en.png" width="25" height="25"></a></li>
+                        <li><a href=${selectLanguageRu_url}><img src="../images/ru.png" width="25" height="25"></a></li>
+                    </ul>
+                </li>
             </c:otherwise>
         </c:choose>
     </ul>
-</div>
+</nav>
 
 
 

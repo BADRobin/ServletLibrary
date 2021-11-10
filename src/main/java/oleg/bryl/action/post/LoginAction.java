@@ -16,11 +16,10 @@ import static oleg.bryl.action.Constants.*;
 public class LoginAction implements Action {
     private static final Logger log = Logger.getLogger(LoginAction.class);
 
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         UserService userService = new UserService();
         String login = req.getParameter(LOGIN);
         String password = req.getParameter(PASSWORD);
-
         try {
             User user = userService.findByLoginPassword(login, Hasher.MD5(password));
             if (user != null) {
@@ -29,11 +28,15 @@ public class LoginAction implements Action {
                 session.setAttribute(ATT_ROLE, user.getUserRole().getName());
                 session.setAttribute(ATT_ROLE_ID, user.getUserRole().getId());
                 session.setAttribute(ATT_NAME, user.getPerson().getFirstName());
-                return new ActionResult(MAIN, true);
-            } else {
-                req.setAttribute(LOGIN_ERROR, true);
-                return new ActionResult(WELCOME);
+
+               return new ActionResult(MAIN, true);
+
             }
+            else {
+                    req.setAttribute(LOGIN_ERROR, true);
+                    return new ActionResult(WELCOME);
+                }
+
         } catch (Exception e) {
             log.info("Ошибка при создании страницы LoginAction " + e.getMessage());
         }

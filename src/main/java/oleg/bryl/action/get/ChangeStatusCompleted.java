@@ -15,7 +15,7 @@ public class ChangeStatusCompleted implements Action {
     private static final Logger log = Logger.getLogger(ChangeStatusCompleted.class);
 
     @Override
-    public ActionResult execute(HttpServletRequest req, HttpServletResponse resp) {
+    public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         int idOrder = Integer.parseInt(req.getParameter(ID_ORDER));
         OrderService orderService = new OrderService();
 
