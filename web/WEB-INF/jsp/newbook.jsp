@@ -100,7 +100,7 @@
         <option selected disabled> </option>
         <c:forEach items="${authors}" var="author">
 
-            <option value="${author.id}">${author.lastName} ${author.firstName} ${author.middleName}</option>
+            <input value="${author.id}">${author.lastName} ${author.firstName} ${author.middleName}</input>
         </c:forEach>
     </select>
     </div>

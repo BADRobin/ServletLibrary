@@ -20,6 +20,7 @@
     <fmt:message key="navbar.addBook" var="addBook"/>
     <fmt:message key="navbar.logout" var="logout"/>
     <fmt:message key="navbar.basket" var="basket"/>
+    <fmt:message key="lang" var="lang"/>
     <fmt:message key="authentication.signin" var="sign_in"/>
     <fmt:message key="topic" var = "topic"/>
     <fmt:message key="order.user" var = "order_user"/>
@@ -44,7 +45,7 @@
                         </c:if>
                     </a>
                 </li>
-            <li><a href="" class="down">Lang</a>
+                <li><a href="" class="down">${lang}</a>
                 <ul class="submenu">
                 <li><a href=${selectLanguageEn_url}><img src="../images/en.png" width="25" height="25"></a></li>
                 <li><a href=${selectLanguageRu_url}><img src="../images/ru.png" width="25" height="25"></a></li>
@@ -56,7 +57,7 @@
                 <li><a href=${readers_url}>${navReaders}</a></li>
                 <li><a href=${addBook_url}>${addBook}</a></li>
                 <li><a href=${logout_url}>${logout}</a></li>
-                <li><a href="" class="down">Lang</a>
+                <li><a href="" class="down">${lang}</a>
                     <ul class="submenu">
                         <li><a href=${selectLanguageEn_url}><img src="../images/en.png" width="25" height="25"></a></li>
                         <li><a href=${selectLanguageRu_url}><img src="../images/ru.png" width="25" height="25"></a></li>
@@ -67,7 +68,7 @@
             <c:otherwise>
                 <li><a href=${home_url}>${sign_in}</a></li>
                 <li><a href=${books_url}>${navBooks}</a></li>
-                <li><a href="" class="down">Lang</a>
+                <li><a href="" class="down">${lang}</a>
                     <ul class="submenu">
                         <li><a href=${selectLanguageEn_url}><img src="../images/en.png" width="25" height="25"></a></li>
                         <li><a href=${selectLanguageRu_url}><img src="../images/ru.png" width="25" height="25"></a></li>

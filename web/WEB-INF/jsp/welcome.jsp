@@ -18,6 +18,7 @@
 <style>
     <jsp:directive.include file="/WEB-INF/style.css"/>
 </style>
+
 <body>
 <c:choose>
     <c:when test="${role.equals('user')}">
@@ -56,4 +57,5 @@
 <c:if test="${not empty not_auth}">
    ${log}
 </c:if>
+
 </body>
