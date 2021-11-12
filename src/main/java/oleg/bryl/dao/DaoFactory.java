@@ -37,12 +37,12 @@ public class DaoFactory implements AutoCloseable {
         return topicDao;
     }
 
-    public CommentDaoImpl getCommentDaoImpl(){
-        CommentDaoImpl commentDao = new CommentDaoImpl();
-        commentDao.setConnection(connection);
-        log.info("Предоставлен CommentDao");
-        return commentDao;
-    }
+//    public CommentDaoImpl getCommentDaoImpl(){
+//        CommentDaoImpl commentDao = new CommentDaoImpl();
+//        commentDao.setConnection(connection);
+//        log.info("Предоставлен CommentDao");
+//        return commentDao;
+//    }
 
     public UserDaoImpl getUserDao() {
         UserDaoImpl userDaoImpl = new UserDaoImpl();

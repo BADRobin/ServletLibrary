@@ -14,6 +14,12 @@ import static oleg.bryl.action.Constants.REFERER;
 public class DeleteBookAction implements Action {
     private static final Logger log = Logger.getLogger(DeleteBookAction.class);
 
+    /**
+     *
+     * @param req
+     * @param resp
+     * @return
+     */
     @Override
     public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         int idBook = Integer.parseInt(req.getParameter(ID_BOOK));

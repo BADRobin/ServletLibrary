@@ -16,6 +16,12 @@ import static oleg.bryl.action.Constants.*;
 public class SelectLanguageAction implements Action {
     private static final Logger log = Logger.getLogger(SelectLanguageAction.class);
 
+    /**
+     *
+     * @param req
+     * @param resp
+     * @return
+     */
     @Override
     public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         String language = req.getParameter(LANG);

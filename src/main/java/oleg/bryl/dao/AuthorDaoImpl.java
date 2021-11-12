@@ -18,6 +18,12 @@ public class AuthorDaoImpl extends BaseDao<Author> {
     private static final String FIND_ALL_AUTHORS_BY_BOOKS_ID = "select id_author from authors_books where id_book = ?";
     private static final String FIND_ALL_AUTHORS_IN_ONE_BOOK = "select author.first_name ,author.last_name ,author.middle_name from author where id_author = ?";
 
+    /**
+     *
+     * @param book
+     * @return
+     * @throws Exception
+     */
     public List<Author> findAuthorsByBook(Book book) throws Exception {
         List<Author> authors = new ArrayList<>();
         List<Author>newAuthors = new ArrayList<>();
@@ -52,6 +58,10 @@ public class AuthorDaoImpl extends BaseDao<Author> {
         return newAuthors;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Author> showAllAuthors(){
         List<Author>authors = new ArrayList<>();
         Author author;
@@ -71,6 +81,12 @@ public class AuthorDaoImpl extends BaseDao<Author> {
         return authors;
     }
 
+    /**
+     *
+     * @param item
+     * @return
+     * @throws Exception
+     */
     @Override
     public Author insert(Author item) throws Exception {
         try {
@@ -87,6 +103,12 @@ public class AuthorDaoImpl extends BaseDao<Author> {
         return item;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @Override
     public Author findById(int id) throws Exception {
         Author author = null;
@@ -105,6 +127,11 @@ public class AuthorDaoImpl extends BaseDao<Author> {
         return author;
     }
 
+    /**
+     *
+     * @param item
+     * @throws Exception
+     */
     @Override
     public void update(Author item) throws Exception {
         try {
@@ -118,6 +145,11 @@ public class AuthorDaoImpl extends BaseDao<Author> {
         }
     }
 
+    /**
+     *
+     * @param item
+     * @throws Exception
+     */
     @Override
     public void delete(Author item) throws Exception {
         try {
@@ -130,6 +162,13 @@ public class AuthorDaoImpl extends BaseDao<Author> {
         }
     }
 
+    /**
+     *
+     * @param statement
+     * @param item
+     * @return
+     * @throws SQLException
+     */
     private PreparedStatement statement(PreparedStatement statement, Author item) throws SQLException {
             statement.setString(1, item.getFirstName());
             statement.setString(2, item.getLastName());
@@ -137,6 +176,12 @@ public class AuthorDaoImpl extends BaseDao<Author> {
         return statement;
     }
 
+    /**
+     *
+     * @param resultSet
+     * @return
+     * @throws SQLException
+     */
     private Author itemAuthor(ResultSet resultSet) throws SQLException {
         Author author = new Author();
         author.setId(resultSet.getInt(1));

@@ -32,13 +32,22 @@
 <BODY>
 <jsp:directive.include file="/WEB-INF/jsp/navbar.jsp"/>
 <div id="content">
-<c:forEach items="${genres}" var="genre">
-<%--    <ul class="submenu">--%>
+
+
+<c:forEach items="${genres}" var="genre" >
+
+
+
     <div style="text-align: center;">
-        <a href="books?genre_id=${genre.id}">${genre.name}</a>
+        <a href="books?genre_id=${genre.id}" >${genre.name}</a>
     </div>
-<%--    </ul>--%>
+
+
+
 </c:forEach>
+
+
+
     <br>
     <table border=1 class="tas" align=center>
         <caption>${books_genre}</caption>

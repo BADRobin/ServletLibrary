@@ -17,6 +17,12 @@ import static oleg.bryl.action.Constants.*;
 public class ShowOrderUser implements Action {
     private static final Logger log = Logger.getLogger(ShowOrderUser.class);
 
+    /**
+     *
+     * @param req
+     * @param resp
+     * @return
+     */
     @Override
     public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();

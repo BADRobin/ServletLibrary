@@ -21,6 +21,11 @@ public class OrderImplDao extends BaseDao<Order> {
     private static final String FIND_BY_USER_ID = "select id_order, status from orders where id_user = ?";
     private static final String FIND_BOOK_BY_ORDER = "select id_book from order_books where id_order = ?";
 
+    /**
+     *
+     * @param user
+     * @return
+     */
     public List<Order> orderByUser(User user) {
         List<Order> orders = new ArrayList<>();
         try {
@@ -71,6 +76,12 @@ public class OrderImplDao extends BaseDao<Order> {
         return books;
     }
 
+    /**
+     *
+     * @param item
+     * @return
+     * @throws Exception
+     */
     @Override
     public Order insert(Order item) throws Exception {
         try {
@@ -95,6 +106,13 @@ public class OrderImplDao extends BaseDao<Order> {
         return item;
     }
 
+    /**
+     *
+     * @param statement
+     * @param item
+     * @return
+     * @throws SQLException
+     */
     private PreparedStatement statementOrder(PreparedStatement statement, Order item) throws SQLException {
         statement.setInt(1, item.getUser().getId());
         statement.setInt(2, item.getStatus().getId());
@@ -102,6 +120,12 @@ public class OrderImplDao extends BaseDao<Order> {
         return statement;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @Override
     public Order findById(int id) throws Exception {
         Order order = new Order();
@@ -126,6 +150,11 @@ public class OrderImplDao extends BaseDao<Order> {
         return order;
     }
 
+    /**
+     *
+     * @param item
+     * @throws Exception
+     */
     @Override
     public void update(Order item) throws Exception {
         try {

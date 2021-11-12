@@ -15,6 +15,12 @@ import static oleg.bryl.action.Constants.*;
 public class PageReadersAction implements Action {
     private static final Logger log = Logger.getLogger(PageReadersAction.class);
 
+    /**
+     *
+     * @param req
+     * @param resp
+     * @return
+     */
     @Override
     public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         UserService userService = new UserService();

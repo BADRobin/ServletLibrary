@@ -1,6 +1,7 @@
 package oleg.bryl.action;
 
 public final class Constants {
+
     //pages
     public static final String REGISTER = "register";
     public static final String BOOKS = "books";

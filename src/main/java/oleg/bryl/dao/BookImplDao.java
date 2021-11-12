@@ -23,6 +23,11 @@ public class BookImplDao extends BaseDao<Book> {
     private static final String FIND_BY_ID_BOOK = "select book.id_book, book.name, book.year ,book.isbn, book.description from book  where id_book = ?";
     private static final String INSERT_AUTHORS_BOOKS = "insert into authors_books values(id_authors_books, ?, ?)";
 
+    /**
+     *
+     * @param authors
+     * @return
+     */
     public List<Book> getBooksByAuthor(List<Author> authors) {
         List<Book> books = new ArrayList<>();
         List<Book> newBooks = new ArrayList<>();
@@ -55,6 +60,10 @@ public class BookImplDao extends BaseDao<Book> {
         return newBooks;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Book> getAllBooks() {
         List<Book> list = new ArrayList<>();
         Book book;
@@ -73,6 +82,12 @@ public class BookImplDao extends BaseDao<Book> {
         return list;
     }
 
+    /**
+     *
+     * @param item
+     * @return
+     * @throws Exception
+     */
     @Override
     public Book insert(Book item) throws Exception {
         try {
@@ -97,6 +112,12 @@ public class BookImplDao extends BaseDao<Book> {
         return item;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     @Override
     public Book findById(int id) throws Exception {
         Book book = null;
@@ -115,6 +136,11 @@ public class BookImplDao extends BaseDao<Book> {
         return book;
     }
 
+    /**
+     *
+     * @param item
+     * @throws Exception
+     */
     @Override
     public void update(Book item) throws Exception {
         try {
@@ -128,6 +154,11 @@ public class BookImplDao extends BaseDao<Book> {
         }
     }
 
+    /**
+     *
+     * @param item
+     * @throws Exception
+     */
     @Override
     public void delete(Book item) throws Exception {
         try {
@@ -140,6 +171,12 @@ public class BookImplDao extends BaseDao<Book> {
         }
     }
 
+    /**
+     *
+     * @param genre
+     * @return
+     * @throws Exception
+     */
     public int getBookCountByGenre(Genre genre) throws Exception {
         int count = 0;
         try {
@@ -157,6 +194,14 @@ public class BookImplDao extends BaseDao<Book> {
         return count;
     }
 
+    /**
+     *
+     * @param genre
+     * @param start
+     * @param count
+     * @return
+     * @throws Exception
+     */
     public List<Book> getLimitBookByGenre(Genre genre, int start, int count) throws Exception {
         List<Book> list = new ArrayList<>();
         Book book;
@@ -178,6 +223,12 @@ public class BookImplDao extends BaseDao<Book> {
         return list;
     }
 
+    /**
+     *
+     * @param resultSet
+     * @return
+     * @throws SQLException
+     */
     private Book itemBook(ResultSet resultSet) throws SQLException {
         Book book = new Book();
         book.setId(resultSet.getInt(1));
@@ -188,6 +239,13 @@ public class BookImplDao extends BaseDao<Book> {
         return book;
     }
 
+    /**
+     *
+     * @param statement
+     * @param item
+     * @return
+     * @throws SQLException
+     */
     private PreparedStatement statementBook(PreparedStatement statement, Book item) throws SQLException {
         statement.setString(1, item.getName());
         statement.setDate(2, item.getDate());

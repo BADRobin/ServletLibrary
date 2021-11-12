@@ -16,6 +16,12 @@ import static oleg.bryl.action.Constants.*;
 public class LoginAction implements Action {
     private static final Logger log = Logger.getLogger(LoginAction.class);
 
+    /**
+     *
+     * @param req
+     * @param resp
+     * @return
+     */
     public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         UserService userService = new UserService();
         String login = req.getParameter(LOGIN);

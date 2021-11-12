@@ -21,6 +21,11 @@ public class ControllerServlet extends HttpServlet {
         actionFactory = new ActionFactory();
     }
 
+    /**
+     *
+     * @param req
+     * @param resp
+     */
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) {
         Action action = actionFactory.getAction(req);

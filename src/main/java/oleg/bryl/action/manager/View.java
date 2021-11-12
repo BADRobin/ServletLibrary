@@ -12,11 +12,20 @@ public class View {
     private final HttpServletRequest request;
     private final HttpServletResponse response;
 
+    /**
+     *
+     * @param request
+     * @param response
+     */
     public View(HttpServletRequest request, HttpServletResponse response) {
         this.request = request;
         this.response = response;
     }
 
+    /**
+     *
+     * @param result
+     */
     public void navigate(ActionResult result) {
         try {
             if (result.isRedirect()) {

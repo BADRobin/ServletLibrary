@@ -14,6 +14,12 @@ import static oleg.bryl.action.Constants.REFERER;
 public class ChangeStatusCompleted implements Action {
     private static final Logger log = Logger.getLogger(ChangeStatusCompleted.class);
 
+    /**
+     *
+     * @param req
+     * @param resp
+     * @return
+     */
     @Override
     public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         int idOrder = Integer.parseInt(req.getParameter(ID_ORDER));

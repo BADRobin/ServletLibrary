@@ -18,6 +18,12 @@ import static oleg.bryl.action.Constants.*;
 public class PageBasketAction implements Action {
     private static final Logger log = Logger.getLogger(PageBasketAction.class);
 
+    /**
+     *
+     * @param req
+     * @param resp
+     * @return
+     */
     @Override
     public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();

@@ -47,6 +47,10 @@ caption{
     background-color: #e9f5f5;
     opacity: 0.78;
 }
+#ganremenu {
+    text-align: center;
+    position: fixed;
+}
 #parent_popup {
     background: #000;
     height: 100%;

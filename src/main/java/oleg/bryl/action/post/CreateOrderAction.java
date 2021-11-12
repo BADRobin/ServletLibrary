@@ -22,6 +22,12 @@ import static oleg.bryl.action.Constants.*;
 public class CreateOrderAction implements Action {
     private static final Logger log = Logger.getLogger(CreateOrderAction.class);
 
+    /**
+     *
+     * @param req
+     * @param resp
+     * @return
+     */
     @Override
     public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession();

@@ -11,7 +11,12 @@ import java.util.HashSet;
 import static oleg.bryl.action.Constants.*;
 
 public class AddToBasketAction implements Action {
-
+    /**
+     *
+     * @param req
+     * @param resp
+     * @return
+     */
     @Override
     public Object execute(HttpServletRequest req, HttpServletResponse resp) {
 

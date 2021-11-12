@@ -11,6 +11,9 @@ public class ActionFactory {
 
     private Map<String, Action> actions;
 
+    /**
+     *
+     */
     public void init() {
         actions = new HashMap<>();
         actions.put("GET/welcome", new ShowPageAction("welcome"));
@@ -40,10 +43,16 @@ public class ActionFactory {
         actions.put("POST/save-author", new CreateAuthorAction());
     }
 
+    /**
+     *
+     * @param request
+     * @return
+     */
     public Action getAction(HttpServletRequest request) {
         if (actions == null) {
             init();
         }
         return actions.get(request.getMethod() + request.getPathInfo());
     }
+
 }

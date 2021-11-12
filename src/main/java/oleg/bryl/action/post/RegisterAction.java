@@ -18,6 +18,12 @@ import static oleg.bryl.validator.RegistrValidation.*;
 public class RegisterAction implements Action {
     private static final Logger log = Logger.getLogger(RegisterAction.class);
 
+    /**
+     *
+     * @param request
+     * @param resp
+     * @return
+     */
     @Override
     public Object execute(HttpServletRequest request, HttpServletResponse resp) {
 
@@ -95,5 +101,7 @@ public class RegisterAction implements Action {
             log.info("can't register user " + e.getMessage());
         }
         return new ActionResult(WELCOME, true);
+
     }
+
 }

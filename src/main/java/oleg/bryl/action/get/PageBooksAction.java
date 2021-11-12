@@ -17,6 +17,12 @@ import static oleg.bryl.action.Constants.*;
 public class PageBooksAction implements Action {
     private static final Logger log = Logger.getLogger(PageBooksAction.class);
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @return
+     */
     @Override
     public Object execute(HttpServletRequest request, HttpServletResponse response) {
         int genreId;

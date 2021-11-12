@@ -9,7 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import static oleg.bryl.action.Constants.WELCOME;
 
 public class LogOutAction implements Action {
-
+    /**
+     *
+     * @param req
+     * @param resp
+     * @return
+     */
     @Override
     public Object execute(HttpServletRequest req, HttpServletResponse resp) {
         req.getSession().invalidate();

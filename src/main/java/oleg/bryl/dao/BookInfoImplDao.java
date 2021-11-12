@@ -18,6 +18,12 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
     private static final String UPDATE_AMOUNT = "update book_info set amount = amount - 1 where id_book = ?";
     private static final String RETURN_AMOUNT = "update book_info set amount = amount + 1 where id_book = ?";
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public BookInfo findByBookAmount(int id) throws Exception {
         BookInfo bookInfo = new BookInfo();
         try {
@@ -36,6 +42,12 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
         return bookInfo;
     }
 
+    /**
+     *
+     * @param item
+     * @return
+     * @throws Exception
+     */
     @Override
     public BookInfo insert(BookInfo item) throws Exception {
         try {
@@ -70,6 +82,11 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
         return bookInfo;
     }
 
+    /**
+     *
+     * @param item
+     * @throws Exception
+     */
     @Override
     public void update(BookInfo item) throws Exception {
         try {
@@ -95,6 +112,12 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
         }
     }
 
+    /**
+     *
+     * @param resultSet
+     * @return
+     * @throws SQLException
+     */
     private BookInfo itemBookInfo(ResultSet resultSet) throws SQLException {
         BookInfo bookInfo = new BookInfo();
         bookInfo.setId(resultSet.getInt(1));
@@ -102,12 +125,25 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
         return bookInfo;
     }
 
+    /**
+     *
+     * @param statement
+     * @param item
+     * @return
+     * @throws SQLException
+     */
     private PreparedStatement statementBookInfo(PreparedStatement statement, BookInfo item) throws SQLException {
         statement.setInt(1, item.getAmount());
         statement.setInt(2, item.getBook().getId());
         return statement;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public BookInfo findByBook(int id) throws Exception {
         BookInfo bookInfo = null;
         try {
@@ -125,6 +161,11 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
         return bookInfo;
     }
 
+    /**
+     *
+     * @param books
+     * @throws Exception
+     */
     public void updateAmount(List<Book> books) throws Exception {
         for (Book book : books) {
             try (PreparedStatement statement = getConnection().prepareStatement(UPDATE_AMOUNT)) {
@@ -136,6 +177,11 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
         }
     }
 
+    /**
+     *
+     * @param books
+     * @throws Exception
+     */
     public void returnAmount(List<Book> books) throws Exception {
         for (Book book : books) {
             try (PreparedStatement statement = getConnection().prepareStatement(RETURN_AMOUNT)) {

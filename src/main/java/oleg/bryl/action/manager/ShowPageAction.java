@@ -6,6 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 public class ShowPageAction implements Action {
     private final ActionResult result;
 
+    /**
+     *
+     * @param page
+     */
     public ShowPageAction(String page) {
         result = new ActionResult(page);
     }

@@ -12,7 +12,12 @@ import static oleg.bryl.action.Constants.*;
 import static oleg.bryl.validator.RegistrValidation.validateNameRegex;
 
 public class CreateAuthorAction implements Action {
-
+    /**
+     *
+     * @param req
+     * @param resp
+     * @return
+     */
     @Override
     public Object execute(HttpServletRequest req, HttpServletResponse resp) {
 
