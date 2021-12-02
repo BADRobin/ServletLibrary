@@ -25,21 +25,21 @@ public class BookService {
     }
 
     private void fillBook(Book book) throws Exception {
-        try {
-            if (book != null) {
-                try (DaoFactory daoFactory = new DaoFactory()) {
-                    AuthorDaoImpl authorDaoImpl = daoFactory.getAuthorDao();
-                    GenreDaoImpl genreDaoImpl = daoFactory.getGenreDao();
-                    List<Author>authors = authorDaoImpl.findAuthorsByBook(book);
-                    book.setAuthorList(authors);
-                    book.setGenre(genreDaoImpl.findByBook(book));
-                }
+
+        if (book != null) {
+            try (DaoFactory daoFactory = new DaoFactory()) {
+                AuthorDaoImpl authorDaoImpl = daoFactory.getAuthorDao();
+                GenreDaoImpl genreDaoImpl = daoFactory.getGenreDao();
+                List<Author> authors = authorDaoImpl.findAuthorsByBook(book);
+                book.setAuthorList(authors);
+                book.setGenre(genreDaoImpl.findByBook(book));
+
+
+            } catch (Exception e) {
+                throw new Exception("can't fill book", e);
             }
-        } catch (Exception e) {
-            throw new Exception("can't fill book", e);
         }
     }
-
     public List<Genre> getAllGenre() throws Exception {
         List<Genre> genres;
 
