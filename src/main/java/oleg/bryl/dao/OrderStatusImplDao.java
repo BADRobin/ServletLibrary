@@ -18,7 +18,7 @@ public class OrderStatusImplDao extends BaseDao<OrderStatus> {
     @Override
     public OrderStatus findById(int id) {
         OrderStatus orderStatus = new OrderStatus();
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_ID)) {
                 statement.setInt(1, id);
                 ResultSet resultSet = statement.executeQuery();
@@ -26,7 +26,6 @@ public class OrderStatusImplDao extends BaseDao<OrderStatus> {
                     orderStatus.setName(resultSet.getString(1));
                     orderStatus.setId(id);
                 }
-            }
 
         } catch (SQLException e) {
             e.getMessage();
@@ -46,7 +45,7 @@ public class OrderStatusImplDao extends BaseDao<OrderStatus> {
 
     public OrderStatus findOrderStatusByName(String nameStatus) throws Exception {
         OrderStatus orderStatus = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_STATUS_BY_NAME)) {
                 statement.setString(1, nameStatus);
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -54,7 +53,7 @@ public class OrderStatusImplDao extends BaseDao<OrderStatus> {
                         orderStatus = itemOrderStatus(resultSet);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't find status by name " + this.getClass().getSimpleName(), e);
         }

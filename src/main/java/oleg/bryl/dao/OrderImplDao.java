@@ -28,7 +28,7 @@ public class OrderImplDao extends BaseDao<Order> {
      */
     public List<Order> orderByUser(User user) {
         List<Order> orders = new ArrayList<>();
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_USER_ID)) {
                 statement.setInt(1, user.getId());
                 ResultSet resultSet = statement.executeQuery();
@@ -53,7 +53,7 @@ public class OrderImplDao extends BaseDao<Order> {
                     order.setBooks(books);
                     orders.add(order);
                 }
-            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -131,7 +131,7 @@ public class OrderImplDao extends BaseDao<Order> {
         Order order = new Order();
         User user = new User();
         OrderStatus orderStatus = new OrderStatus();
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_ID)) {
                 statement.setInt(1, id);
                 ResultSet resultSet = statement.executeQuery();
@@ -143,7 +143,7 @@ public class OrderImplDao extends BaseDao<Order> {
                     order.setStatus(orderStatus);
                     order.setStartDate(resultSet.getDate(4));
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't update order" + this.getClass().getSimpleName() + "/" + e);
         }
@@ -157,12 +157,12 @@ public class OrderImplDao extends BaseDao<Order> {
      */
     @Override
     public void update(Order item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(UPDATE_ST)) {
                 statement.setInt(1, item.getStatus().getId());
                 statement.setInt(2, item.getId());
                 statement.executeUpdate();
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't update order" + this.getClass().getSimpleName() + "/" + item, e);
         }
@@ -170,11 +170,11 @@ public class OrderImplDao extends BaseDao<Order> {
 
     @Override
     public void delete(Order item) {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(DELETE_ORDER_BOOK)) {
                 statement.setInt(1, item.getId());
                 statement.executeUpdate();
-            }
+
         } catch (SQLException e) {
             e.getMessage();
         }

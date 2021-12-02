@@ -18,7 +18,7 @@ public class UserService {
     public void registerUser(User user) throws Exception {
          String USER_ROLE = USER;
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 PersonDaoImpl personDaoImpl = daoFactory.getPersonDao();
                 UserDaoImpl userDaoImpl = daoFactory.getUserDao();
                 UserRoleImplDao userRoleImplDao = daoFactory.getUserRoleDao();
@@ -31,17 +31,18 @@ public class UserService {
                 daoFactory.commitTransaction();
                 daoFactory.finishTransaction();
             } catch (Exception e) {
-                    daoFactory.rollbackTransaction();
+            DaoFactory daoFactory = new DaoFactory();
+            daoFactory.rollbackTransaction();
                     daoFactory.finishTransaction();
                 throw new Exception("can't register user", e);
             }
         }
-    }
+
 
     public User findByLogin(String login) throws Exception {
         try (DaoFactory daoFactory = new DaoFactory()) {
             User user;
-            try {
+
                 UserDaoImpl userDaoImpl = daoFactory.getUserDao();
                 user = userDaoImpl.getUser(login);
                 fillUser(user);
@@ -50,12 +51,11 @@ public class UserService {
                 throw new Exception("can't find user by login", e);
             }
         }
-    }
+
 
     public User findUserById(int id) throws Exception {
         try (DaoFactory daoFactory = new DaoFactory()) {
             User user;
-            try {
                 UserDaoImpl userDaoImpl = daoFactory.getUserDao();
                 user = userDaoImpl.findById(id);
                 fillUser(user);
@@ -64,12 +64,12 @@ public class UserService {
                 throw new Exception("can't find user by id", e);
             }
         }
-    }
+
 
     public User findByLoginPassword(String login, String password) throws Exception {
         try (DaoFactory daoFactory = new DaoFactory()) {
             User user;
-            try {
+
                 UserDaoImpl userDaoImpl = daoFactory.getUserDao();
                 user = userDaoImpl.getUser(login, password);
                 fillUser(user);
@@ -78,7 +78,7 @@ public class UserService {
                 throw new Exception("can't find by login and password user", e);
             }
         }
-    }
+
 
     public boolean isLoginAvailable(String login) throws Exception {
         return findByLogin(login) == null;
@@ -86,18 +86,18 @@ public class UserService {
 
     public int userCount() throws Exception {
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 UserDaoImpl userDaoImpl = daoFactory.getUserDao();
                 return userDaoImpl.getUserCount();
             } catch (Exception e) {
                 throw new Exception("can't get count user", e);
             }
         }
-    }
+
 
     public List<User> getListUsers(int start, int end) throws Exception {
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 UserDaoImpl userDaoImpl = daoFactory.getUserDao();
                 List<User> listUsers = userDaoImpl.getLimitUsers(start, end);
                 for (User user : listUsers) {
@@ -108,7 +108,7 @@ public class UserService {
                 throw new Exception("can't get list of user ", e);
             }
         }
-    }
+
 
     private void fillUser(User user) throws Exception {
         try {
@@ -128,7 +128,6 @@ public class UserService {
 
     public void deleteUser(User user) throws Exception {
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
                 PersonDaoImpl personDaoImpl = daoFactory.getPersonDao();
                 UserDaoImpl userDaoImpl = daoFactory.getUserDao();
                 Person person = personDaoImpl.findByUser(user);
@@ -138,12 +137,13 @@ public class UserService {
                 daoFactory.commitTransaction();
                 daoFactory.finishTransaction();
             } catch (Exception e) {
-                    daoFactory.rollbackTransaction();
+            DaoFactory daoFactory = new DaoFactory();
+            daoFactory.rollbackTransaction();
                     daoFactory.finishTransaction();
                 throw new Exception("can't delete user", e);
             }
         }
-    }
+
 
     public void findUserById(long parseLong, boolean parseBoolean) {
 

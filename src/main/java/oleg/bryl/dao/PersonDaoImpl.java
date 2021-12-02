@@ -16,14 +16,14 @@ public class PersonDaoImpl extends BaseDao<Person> {
 
     @Override
     public Person insert(Person item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(INSERT, PreparedStatement.RETURN_GENERATED_KEYS)) {
                 statementPerson(statement, item).executeUpdate();
                 try (ResultSet resultSet = statement.getGeneratedKeys()) {
                     resultSet.next();
                     item.setId(resultSet.getInt(1));
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't insert " + this.getClass().getSimpleName() + "/" + item, e);
         }
@@ -33,7 +33,7 @@ public class PersonDaoImpl extends BaseDao<Person> {
     @Override
     public Person findById(int id) throws Exception {
         Person person = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_ID)) {
                 statement.setInt(1, id);
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -41,7 +41,7 @@ public class PersonDaoImpl extends BaseDao<Person> {
                         person = itemPerson(resultSet);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't find by id " + this.getClass().getSimpleName(), e);
         }
@@ -55,11 +55,11 @@ public class PersonDaoImpl extends BaseDao<Person> {
 
     @Override
     public void delete(Person item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(DELETE)) {
                 statement.setInt(1, item.getId());
                 statement.executeUpdate();
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't delete  " + this.getClass().getSimpleName() + "/" + item, e);
         }
@@ -67,7 +67,7 @@ public class PersonDaoImpl extends BaseDao<Person> {
 
     public Person findByUser(User user) throws Exception {
         Person person = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_USER)) {
                 statement.setInt(1, user.getId());
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -76,7 +76,7 @@ public class PersonDaoImpl extends BaseDao<Person> {
 
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't find by user " + this.getClass().getSimpleName(), e);
         }

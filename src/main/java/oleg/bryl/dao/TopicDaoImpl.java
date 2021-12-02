@@ -15,11 +15,11 @@ public class TopicDaoImpl extends BaseDao<Topic> {
 
     @Override
     public Topic insert(Topic item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(INSERT)) {
                 statement.setString(1,item.getName());
                 statement.executeUpdate();
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't insert " + this.getClass().getSimpleName() + "/" + item, e);
         }

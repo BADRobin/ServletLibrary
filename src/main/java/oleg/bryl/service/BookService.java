@@ -14,11 +14,11 @@ import java.util.regex.Pattern;
 public class BookService {
 
     public void createAuthor(Author author){
-        try {
+
             try(DaoFactory daoFactory = new DaoFactory()) {
                 AuthorDaoImpl authorDaoImpl = daoFactory.getAuthorDao();
                 authorDaoImpl.insert(author);
-            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -42,12 +42,12 @@ public class BookService {
 
     public List<Genre> getAllGenre() throws Exception {
         List<Genre> genres;
-        try {
+
             try (DaoFactory daoFactory = new DaoFactory()) {
                 GenreDaoImpl genreDaoImpl = daoFactory.getGenreDao();
                 genres = genreDaoImpl.getAll();
                 return genres;
-            }
+
         } catch (Exception e) {
             throw new Exception("can't get all genre", e);
         }
@@ -55,12 +55,12 @@ public class BookService {
 
     public List<Author> getAllAuthor() throws Exception {
         List<Author> authors;
-        try {
+
             try (DaoFactory daoFactory = new DaoFactory()) {
                 AuthorDaoImpl authorDaoImpl = daoFactory.getAuthorDao();
                 authors = authorDaoImpl.showAllAuthors();
                 return authors;
-            }
+
         } catch (Exception e) {
             throw new Exception("can't get all genre", e);
         }
@@ -69,7 +69,7 @@ public class BookService {
     public List<BookInfo> getListBook(Genre genre, int start, int end) throws Exception {
         List<BookInfo> bookInfoListByGenre = new ArrayList<>();
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 BookImplDao bookImplDao = daoFactory.getBookDao();
                 List<Book> listBooksByGenre = bookImplDao.getLimitBookByGenre(genre, start, end);
                 for (Book book : listBooksByGenre) {
@@ -88,11 +88,11 @@ public class BookService {
                 throw new Exception("can't get list by genre book", e);
             }
         }
-    }
+
 
     public int getBookCountByGenre(Genre genre) throws Exception {
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 BookImplDao bookImplDao = daoFactory.getBookDao();
                 int countBooksByGenre = bookImplDao.getBookCountByGenre(genre);
                 return countBooksByGenre;
@@ -100,11 +100,11 @@ public class BookService {
                 throw new Exception("can't get count book", e);
             }
         }
-    }
+
 
     public void addBook(BookInfo bookInfo) throws Exception {
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 BookImplDao bookImplDao = daoFactory.getBookDao();
                 BookInfoImplDao bookInfoImplDao = daoFactory.getBookInfoDao();
                 daoFactory.startTransaction();
@@ -113,16 +113,17 @@ public class BookService {
                 daoFactory.commitTransaction();
                 daoFactory.finishTransaction();
             } catch (Exception e) {
-                daoFactory.rollbackTransaction();
+            DaoFactory daoFactory = new DaoFactory();
+            daoFactory.rollbackTransaction();
                 daoFactory.finishTransaction();
                 throw new Exception("can't register book", e);
             }
         }
-    }
+
 
     public BookInfo findBookById(int id) throws Exception {
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 BookImplDao bookImplDao = daoFactory.getBookDao();
                 Book book = bookImplDao.findById(id);
                 fillBook(book);
@@ -134,13 +135,13 @@ public class BookService {
                 throw new Exception("can't get book by ID " + id);
             }
         }
-    }
+
 
     public List<Book> searchByBookTittle(String item) {
         List<Book> books;
         List<Book> foundBooks = new ArrayList<>();
         try (DaoFactory daoFactory = new DaoFactory()){
-            try {
+
                 BookImplDao bookImplDao = daoFactory.getBookDao();
                 books = bookImplDao.getAllBooks();
                 Pattern p = Pattern.compile(item.trim() + "?");
@@ -158,7 +159,7 @@ public class BookService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+
         return foundBooks;
     }
 
@@ -166,7 +167,7 @@ public class BookService {
         List<Author> authors;
         List<Author> newAuthors = new ArrayList<>();
         try (DaoFactory daoFactory = new DaoFactory()){
-            try {
+
                 AuthorDaoImpl authorDaoImpl = daoFactory.getAuthorDao();
                 authors = authorDaoImpl.showAllAuthors();
                 Pattern p = Pattern.compile(item.trim() + "?");
@@ -183,14 +184,14 @@ public class BookService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+
         return newAuthors;
     }
 
     public List<Book> searchByAuthorNameAndBookTittle(List<Author> authors) {
         List<Book> books = new ArrayList<>();
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 BookImplDao bookImplDao = daoFactory.getBookDao();
                 books = bookImplDao.getBooksByAuthor(authors);
                 for(Book book:books){
@@ -198,14 +199,14 @@ public class BookService {
                 }
         } catch (Exception e) {
                 e.printStackTrace();
-            }
+
         }
             return books;
     }
 
     public void deleteBook(int id) throws Exception {
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 BookImplDao bookImplDao = daoFactory.getBookDao();
                 BookInfoImplDao bookInfoImplDao = daoFactory.getBookInfoDao();
                 Book book = new Book();
@@ -217,17 +218,18 @@ public class BookService {
                 daoFactory.commitTransaction();
                 daoFactory.finishTransaction();
             } catch (Exception e) {
-                    daoFactory.rollbackTransaction();
+            DaoFactory daoFactory = new DaoFactory();
+            daoFactory.rollbackTransaction();
                     daoFactory.finishTransaction();
                     e.getMessage();
                 }
             }
-        }
+
 
     public List<Author> fillAuthors(List<Integer> items) {
         List<Author> authors = new ArrayList<>();
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 AuthorDaoImpl authorDaoImpl = daoFactory.getAuthorDao();
 
                 for (Integer value : items) {
@@ -238,7 +240,7 @@ public class BookService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+
         return authors;
     }
 }

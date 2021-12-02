@@ -65,7 +65,7 @@ public class AuthorDaoImpl extends BaseDao<Author> {
     public List<Author> showAllAuthors(){
         List<Author>authors = new ArrayList<>();
         Author author;
-        try {
+
             try(PreparedStatement statement = getConnection().prepareStatement(FIND_ALL_AUTHORS)) {
                 ResultSet resultSet = statement.executeQuery();
                 while (resultSet.next()){
@@ -74,7 +74,7 @@ public class AuthorDaoImpl extends BaseDao<Author> {
                 }
             } catch (SQLException e) {
                 e.getMessage();
-            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -89,14 +89,14 @@ public class AuthorDaoImpl extends BaseDao<Author> {
      */
     @Override
     public Author insert(Author item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(INSERT,PreparedStatement.RETURN_GENERATED_KEYS)) {
                 statement(statement, item).executeUpdate();
                 try(ResultSet resultSet = statement.getGeneratedKeys()){
                 resultSet.next();
                     item.setId(resultSet.getInt(1));
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't insert " + this.getClass().getSimpleName() + "/" + item, e);
         }
@@ -112,7 +112,7 @@ public class AuthorDaoImpl extends BaseDao<Author> {
     @Override
     public Author findById(int id) throws Exception {
         Author author = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_ID)) {
                 statement.setInt(1, id);
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -120,7 +120,7 @@ public class AuthorDaoImpl extends BaseDao<Author> {
                         author = itemAuthor(resultSet);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't find by id  " + this.getClass().getSimpleName(), e);
         }
@@ -134,12 +134,12 @@ public class AuthorDaoImpl extends BaseDao<Author> {
      */
     @Override
     public void update(Author item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(UPDATE)) {
                 statement(statement, item);
                 statement.setInt(4, item.getId());
                 statement.executeUpdate();
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't update " + this.getClass().getSimpleName() + "/" + item, e);
         }
@@ -152,11 +152,11 @@ public class AuthorDaoImpl extends BaseDao<Author> {
      */
     @Override
     public void delete(Author item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(DELETE)) {
                 statement.setInt(1, item.getId());
                 statement.executeUpdate();
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't delete author " + this.getClass().getSimpleName() + "/" + item, e);
         }

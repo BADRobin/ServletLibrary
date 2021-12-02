@@ -26,7 +26,7 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
      */
     public BookInfo findByBookAmount(int id) throws Exception {
         BookInfo bookInfo = new BookInfo();
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_BOOK)) {
                 statement.setInt(1, id);
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -35,7 +35,7 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
                         bookInfo.setAmount(resultSet.getInt(2));
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't find by book " + this.getClass().getSimpleName(), e);
         }
@@ -50,14 +50,14 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
      */
     @Override
     public BookInfo insert(BookInfo item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(INSERT, PreparedStatement.RETURN_GENERATED_KEYS)) {
                 statementBookInfo(statement, item).executeUpdate();
                 try (ResultSet resultSet = statement.getGeneratedKeys()) {
                     resultSet.next();
                     item.setId(resultSet.getInt(1));
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't insert " + this.getClass().getSimpleName() + "/" + item, e);
         }
@@ -67,7 +67,7 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
     @Override
     public BookInfo findById(int id) throws Exception {
         BookInfo bookInfo = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_ID)) {
                 statement.setInt(1, id);
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -75,7 +75,7 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
                         bookInfo = itemBookInfo(resultSet);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't find by id " + this.getClass().getSimpleName(), e);
         }
@@ -89,12 +89,12 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
      */
     @Override
     public void update(BookInfo item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(UPDATE)) {
                 statementBookInfo(statement, item);
                 statement.setInt(3, item.getId());
                 statement.executeUpdate();
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't update " + this.getClass().getSimpleName() + "/" + item, e);
         }
@@ -102,11 +102,11 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
 
     @Override
     public void delete(BookInfo item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(DELETE)) {
                 statement.setInt(1, item.getId());
                 statement.executeUpdate();
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't delete " + this.getClass().getSimpleName() + "/" + item, e);
         }
@@ -146,7 +146,7 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
      */
     public BookInfo findByBook(int id) throws Exception {
         BookInfo bookInfo = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_BOOK)) {
                 statement.setInt(1, id);
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -154,7 +154,7 @@ public class BookInfoImplDao extends BaseDao<BookInfo> {
                         bookInfo = itemBookInfo(resultSet);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't find by book " + this.getClass().getSimpleName(), e);
         }

@@ -3,4 +3,6 @@
 /target/
 /.idea/
 ### IntelliJ IDEA ###
+.idea/
 .idea
+/idea/

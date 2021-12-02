@@ -28,7 +28,7 @@ public class GenreDaoImpl extends BaseDao<Genre> {
     @Override
     public Genre findById(int id) throws Exception {
         Genre genre = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_ID)) {
                 statement.setInt(1, id);
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -36,7 +36,7 @@ public class GenreDaoImpl extends BaseDao<Genre> {
                         genre = itemGenre(resultSet);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't find by id " + this.getClass().getSimpleName(), e);
         }
@@ -65,7 +65,7 @@ public class GenreDaoImpl extends BaseDao<Genre> {
     public List<Genre> getAll() throws Exception {
         List<Genre> list = new ArrayList<>();
         Genre genre;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(SELECT_ALL)) {
                 try (ResultSet resultSet = statement.executeQuery()) {
                     while (resultSet.next()) {
@@ -73,7 +73,7 @@ public class GenreDaoImpl extends BaseDao<Genre> {
                         list.add(genre);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't get all list " + this.getClass().getSimpleName(), e);
         }
@@ -82,7 +82,7 @@ public class GenreDaoImpl extends BaseDao<Genre> {
 
     public Genre findByBook(Book book) throws Exception {
         Genre genre = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_BOOK)) {
                 statement.setInt(1, book.getId());
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -90,7 +90,7 @@ public class GenreDaoImpl extends BaseDao<Genre> {
                         genre = itemGenre(resultSet);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't find by book " + this.getClass().getSimpleName(), e);
         }

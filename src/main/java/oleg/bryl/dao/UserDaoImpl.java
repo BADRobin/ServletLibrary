@@ -22,7 +22,7 @@ public class UserDaoImpl extends BaseDao<User> {
 
     @Override
     public User insert(User item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(INSERT, PreparedStatement.RETURN_GENERATED_KEYS)) {
                 statementUser(statement, item);
                 statement.executeUpdate();
@@ -30,7 +30,7 @@ public class UserDaoImpl extends BaseDao<User> {
                     resultSet.next();
                     item.setId(resultSet.getInt(1));
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't insert " + this.getClass().getSimpleName() + "/" + item, e);
         }
@@ -39,7 +39,7 @@ public class UserDaoImpl extends BaseDao<User> {
 
     public User findById(int id) throws Exception {
         User user = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_ID)) {
                 statement.setInt(1, id);
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -47,7 +47,7 @@ public class UserDaoImpl extends BaseDao<User> {
                         user = itemUser(resultSet);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't find by id " + this.getClass().getSimpleName(), e);
         }
@@ -56,12 +56,12 @@ public class UserDaoImpl extends BaseDao<User> {
 
     @Override
     public void update(User item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(UPDATE)) {
                 statementUser(statement, item);
                 statement.setInt(6, item.getId());
                 statement.executeUpdate();
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't update  " + this.getClass().getSimpleName() + "/" + item, e);
         }
@@ -69,11 +69,11 @@ public class UserDaoImpl extends BaseDao<User> {
 
     @Override
     public void delete(User item) throws Exception {
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(DELETE)) {
                 statement.setInt(1, item.getId());
                 statement.executeUpdate();
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't delete user " + this.getClass().getSimpleName() + "/" + item, e);
         }
@@ -95,7 +95,7 @@ public class UserDaoImpl extends BaseDao<User> {
 
     public User getUser(String login) throws Exception {
         User user = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_LOGIN)) {
                 statement.setString(1, login);
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -103,7 +103,7 @@ public class UserDaoImpl extends BaseDao<User> {
                         user = itemUser(resultSet);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't get by login " + this.getClass().getSimpleName(), e);
         }
@@ -112,7 +112,7 @@ public class UserDaoImpl extends BaseDao<User> {
 
     public User getUser(String login, String password) throws Exception {
         User user = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_LOGIN_PASSWORD)) {
                 statement.setString(1, login);
                 statement.setString(2, password);
@@ -121,7 +121,7 @@ public class UserDaoImpl extends BaseDao<User> {
                         user = itemUser(resultSet);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't get by login and pasdword " + this.getClass().getSimpleName(), e);
         }
@@ -131,7 +131,7 @@ public class UserDaoImpl extends BaseDao<User> {
     public List<User> getLimitUsers(int start, int count) throws Exception {
         List<User> list = new ArrayList<>();
         User user;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(LIMIT_USER)) {
                 statement.setInt(1, ((start - 1) * count));
                 statement.setInt(2, count);
@@ -141,7 +141,7 @@ public class UserDaoImpl extends BaseDao<User> {
                         list.add(user);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't get list of user " + this.getClass().getSimpleName(), e);
         }

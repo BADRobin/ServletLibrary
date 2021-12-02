@@ -17,7 +17,7 @@ public class OrderService {
     public void addOrder(Order order) throws Exception {
          String STATUS_ORDER_NEW = NEW;
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 OrderImplDao orderImplDao = daoFactory.getOrderDao();
                 OrderStatusImplDao orderStatusImplDao = daoFactory.getOrderStatusDao();
                 BookInfoImplDao bookInfoImplDao = daoFactory.getBookInfoDao();
@@ -30,12 +30,13 @@ public class OrderService {
                 daoFactory.commitTransaction();
                 daoFactory.finishTransaction();
             } catch (Exception e) {
-                daoFactory.rollbackTransaction();
+            DaoFactory daoFactory = new DaoFactory();
+            daoFactory.rollbackTransaction();
                 daoFactory.finishTransaction();
                 e.printStackTrace();
             }
         }
-    }
+
 
     public List<Order> showUserOrders(User user) throws Exception {
         List<Order> orders;
@@ -62,7 +63,7 @@ public class OrderService {
     public List<Order> showAllOrders(User user) {
         List<Order> orders = null;
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 OrderImplDao orderImplDao = daoFactory.getOrderDao();
                 BookImplDao bookImplDao = daoFactory.getBookDao();
                 OrderStatusImplDao orderStatusImplDao = daoFactory.getOrderStatusDao();
@@ -80,14 +81,14 @@ public class OrderService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+
         return orders;
     }
 
     public Order changeOrder(int id, int status) {
         Order order = null;
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 OrderImplDao orderImplDao = daoFactory.getOrderDao();
                 order = orderImplDao.findById(id);
                 OrderStatus orderStatus = new OrderStatus();
@@ -97,14 +98,14 @@ public class OrderService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+
         return order;
     }
 
     public Order changeOrderCom(int id, int status) throws Exception {
         Order order = null;
         try (DaoFactory daoFactory = new DaoFactory()) {
-            try {
+
                 OrderImplDao orderImplDao = daoFactory.getOrderDao();
                 BookInfoImplDao bookInfoImplDao = daoFactory.getBookInfoDao();
                 List<Book> books = orderImplDao.takeBookByOrderId(id);
@@ -118,11 +119,12 @@ public class OrderService {
                 daoFactory.commitTransaction();
                 daoFactory.finishTransaction();
             } catch (Exception e) {
-                daoFactory.rollbackTransaction();
+            DaoFactory daoFactory = new DaoFactory();
+            daoFactory.rollbackTransaction();
                 daoFactory.finishTransaction();
                 e.printStackTrace();
             }
-        }
+
         return order;
     }
 }

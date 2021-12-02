@@ -14,7 +14,7 @@ public class UserRoleImplDao extends BaseDao<UserRole> {
 
     public UserRole findByUser(User user) throws Exception {
         UserRole userRole = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_USER)) {
                 statement.setInt(1, user.getId());
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -22,7 +22,7 @@ public class UserRoleImplDao extends BaseDao<UserRole> {
                         userRole = itemRole(resultSet);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't find by user " + this.getClass().getSimpleName(), e);
         }
@@ -31,7 +31,7 @@ public class UserRoleImplDao extends BaseDao<UserRole> {
 
     public UserRole findRoleByName(String nameRole) throws Exception{
         UserRole userRole = null;
-        try {
+
             try (PreparedStatement statement = getConnection().prepareStatement(FIND_BY_NAME_ROLE)) {
                 statement.setString(1, nameRole);
                 try (ResultSet resultSet = statement.executeQuery()) {
@@ -39,7 +39,7 @@ public class UserRoleImplDao extends BaseDao<UserRole> {
                         userRole = itemRole(resultSet);
                     }
                 }
-            }
+
         } catch (SQLException e) {
             throw new Exception("can't find by role " + this.getClass().getSimpleName(), e);
         }
