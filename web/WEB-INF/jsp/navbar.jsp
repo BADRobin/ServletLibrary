@@ -9,7 +9,7 @@
 <c:url var="basket_url" value="/app/basket"/>
 
 <c:url var="selectLanguageEn_url" value="/app/select-language?lang=en"/>
-<c:url var="selectLanguageRu_url" value="/app/select-language?lang=ru"/>
+<c:url var="selectLanguageUa_url" value="/app/select-language?lang=ua"/>
 
 <html lang=en>
 <meta charset="UTF-8">
@@ -48,7 +48,7 @@
                 <li><a href="" class="down">${lang}</a>
                 <ul class="submenu">
                 <li><a href=${selectLanguageEn_url}><img src="../images/en.png" width="25" height="25"></a></li>
-                <li><a href=${selectLanguageRu_url}><img src="../images/ru.png" width="25" height="25"></a></li>
+                <li><a href=${selectLanguageUA_url}><img src="../images/ua.png" width="25" height="25"></a></li>
                 </ul>
             </li>
             </c:when>
@@ -60,7 +60,7 @@
                 <li><a href="" class="down">${lang}</a>
                     <ul class="submenu">
                         <li><a href=${selectLanguageEn_url}><img src="../images/en.png" width="25" height="25"></a></li>
-                        <li><a href=${selectLanguageRu_url}><img src="../images/ru.png" width="25" height="25"></a></li>
+                        <li><a href=${selectLanguageUa_url}><img src="../images/ua.png" width="25" height="25"></a></li>
                     </ul>
                 </li>
 
@@ -71,7 +71,7 @@
                 <li><a href="" class="down">${lang}</a>
                     <ul class="submenu">
                         <li><a href=${selectLanguageEn_url}><img src="../images/en.png" width="25" height="25"></a></li>
-                        <li><a href=${selectLanguageRu_url}><img src="../images/ru.png" width="25" height="25"></a></li>
+                        <li><a href=${selectLanguageUa_url}><img src="../images/ua.png" width="25" height="25"></a></li>
                     </ul>
                 </li>
             </c:otherwise>
